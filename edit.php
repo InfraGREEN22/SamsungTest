@@ -47,10 +47,6 @@
 		// creating new string to replace existing string in a favourite_movies cell
 		$newValue = '';
 
-		for($i = 0; $i < count($movies); $i++) {
-
-		}
-
 		// going throug each movie id and check if there is a match; if there is, we don't append it to the resulting string
 		foreach ($movies as $movie) {
 			if($movie != $id) {
