@@ -55,8 +55,10 @@
 
     		<div class="row justify-content-center text-center" style="background-color: #d9d9d9; border-radius: 25px; margin-top: 20px;">
     			<p style="padding-left: 5px; padding-right: 5px;">
-    				<h4>This is a test web service using OMDb API to get information about movies. There are a number of users defined in the system, each of them
-    				has a number of favourite movies.</h4>
+    				<h4>This is a test web service using OMDb API to get information about movies. There are a number of users pre-defined in the system, each of them
+    				has a number of favourite movies. You can either get the information about all the users and their favourite movies, 
+    				add new favourite movie to a specific user, delete a specific movie from a user's list, add new user, delete a user or update user'd personal
+    				details. Please, use the menu below to get the full experience of using this application!</h4>
     			</p>
     		</div>
 
@@ -96,10 +98,33 @@
 
     		</div>
 
-    		<div>
-    			<h4 id="h1">Hello</h4>
-    		</div>
+    		<div class=" row justify-content-center" style="margin-top: 20px; height: 100px;">
 
+	    		<div class="col-lg-2 col-md-2 col-sm-6 h-100" style="background-color: #ff4d4d; border-radius: 25px; margin: 20px;">
+	    				<a href="adduser.php" class="stretched-link">
+	    					<div class="vertical-center">
+	    						<h4>Add new user to the system</h4>			
+	    					</div>
+	    				</a>
+	    		</div>
+
+	    		<div class="col-lg-2 col-md-2 col-sm-6 h-100" style="background-color: #668cff; border-radius: 25px; margin: 20px;">
+	    				<a href="updateuser.php" class="stretched-link">
+	    					<div class="vertical-center">
+	    						<h4>Update existing user's details</h4>			
+	    					</div>
+	    				</a>
+	    		</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-6 h-100" style="background-color: #00e6e6; border-radius: 25px; margin: 20px;">
+	    				<a href="deleteuser.php" class="stretched-link">
+	    					<div class="vertical-center">
+	    						<h4>Delete user</h4>			
+	    					</div>
+	    				</a>
+	    		</div>
+
+	    	</div>
 		</div>
 	</div>
   </body>

@@ -14,31 +14,23 @@
 
 	// получаем результат; строки бд в качестве ассоциативного массива
 	$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
 
-	// если кнопка на добавление фильма была нажата
-	if(isset($_POST['submit_movie'])) {
-		$id = $_POST['imdbid'];
-		if($id[0] != 't' && $id[1] != 't') {
-			echo '<div class="conatiner" style="color: red; font-size: 24;">';
-			echo '<div class="row justify-content-center">';
-			echo '<h4>The value for IMDB ID is invalid! It should start with "tt". Go back and check the validity of inputed value!</h4></div></div>';
-			return;
-		}
-		$name = explode('_', $_POST['user_name']);
-		echo $name[0] . ' ' . $name[1];
-
-		$sql = "UPDATE users SET favourite_movies = CONCAT(favourite_movies, ',$id') WHERE firstName='$name[0]' AND lastName='$name[1]'"; 
+<?php
+	if(isset($_POST['delete_user'])) {
+		$temp = $_POST['user_name'];
+		echo '<script type="text/javascript">console.log(' . "'" .$temp. "'" . ');</script>';
+		$username = explode('_', $temp); 	
+		$sql = "DELETE FROM users WHERE firstName='$username[0]' AND lastName='$username[1]'"; 
 		$result = mysqli_query($connection, $sql);
-
 		header("Location: index.php");
 	}
-
  ?>
 
  <!DOCTYPE html>
  <html>
  <head>
- 	<title>Add entry</title>
+ 	<title>Delete user</title>
  	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -65,26 +57,24 @@
  			</button>
  		</div>
  		<div class="row justify-content-center">
- 			<h1>Add a movie to a user</h1>
+ 			<h1>Delete user</h1>
  		</div>
  		<div class="row justify-content-center">
- 			<form action="edit.php" method="POST">
+ 			<form action="deleteuser.php" method="POST">
  				<div class="form-group needs-validation" style="font-size: 12;">
+
  					<label for="select">User:</label>
- 					<select class="form-control" name="user_name">
+ 					<select class="form-control" name="user_name" required>
 						<?php 
 							foreach ($users as $user):
 								echo '<option value="'.$user['firstName'].'_'.$user['lastName'].'">'.$user['firstName'].' '.$user['lastName'].'</option>';
 							endforeach;
 						 ?>
  					</select>
- 					<label for="text" style="margin-top: 10px;">IMDB ID:</label>
-					<input class="form-control" type="text" name="imdbid" placeholder="Example: tt4276094" required>
-					<div class="valid-feedback">Valid.</div>
-      				<div class="invalid-feedback">Please fill out this field.</div>
+
 			  		<!--<input class="form-control" type="submit" name="submit_movie" value="Add new movie">-->
-			  		<button type="submit" class="btn btn-primary form-control" name="submit_movie" style="margin-top:  10px;">
-			  			Add new movie
+			  		<button type="submit" class="btn btn-primary form-control" name="delete_user" style="margin-top:  10px;">
+			  			Delete user
 			  		</button>
  				</div>
  			</form>

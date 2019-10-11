@@ -67,7 +67,12 @@
 			<?php foreach ($id_values as $value) { ?>
 				<div>
 					<ul>
-						<?php $movie = $omdb->getByImdbId($value);
+						<?php 
+							if ($value == '') {
+								echo "NO DATA";
+								return;
+							}
+							$movie = $omdb->getByImdbId($value);
 							echo '<li><h3>' . $movie->getTitle() . '</h3></li><br>';
 							$array = $movie->toArray();?>
 							<div class="row justify-content-center">
