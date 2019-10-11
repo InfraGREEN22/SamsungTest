@@ -4,6 +4,9 @@
 С помощью Composer установлен OMDB API PHP Wrapper для удобной работы с базой данных фильмов и обработки данных в PHP.
 
 Данные для доступа к БД
+
 host: localhost
+
 username: alex
+
 password: 123456789
